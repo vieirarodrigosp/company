@@ -22,13 +22,13 @@ public class CompanyController {
 	@Autowired
 	private CompanyBO companyBO;
 	@ApiOperation(value="This service creates a new Company in the database.")
-	@PostMapping(path = "/v1/Companys")
+	@PostMapping(path = "/v1/companies")
 	public @ResponseBody CompanyVO save(@RequestBody CompanyDTO Company) {
 		return companyBO.save(Company);
 	}
 	@ApiOperation(value="This service seeks to Company by CompanyId.")
-	@GetMapping(path = "/v1/Companys/{id}")
-	public @ResponseBody Optional<CompanyVO> findByCompanyId(@PathVariable int id) {
+	@GetMapping(path = "/v1/companies/{id}")
+	public @ResponseBody Optional<CompanyVO> findById(@PathVariable int id) {
 		return companyBO.findById(id);
 	}
 }

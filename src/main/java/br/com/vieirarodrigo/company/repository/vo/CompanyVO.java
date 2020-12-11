@@ -1,7 +1,9 @@
 package br.com.vieirarodrigo.company.repository.vo;
 
+import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -19,11 +21,13 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name = "COMPANY")
-public class CompanyVO {
+public class CompanyVO implements Serializable {
+	public static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int id;
-	private String name;
-	private String slug;
-	private Date created;
+	public int id;
+	public String name;
+	public String slug;
+	@Column(name = "CREATED_AT")
+	public Date created;
 }
